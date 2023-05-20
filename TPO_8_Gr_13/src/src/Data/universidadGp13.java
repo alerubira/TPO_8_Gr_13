@@ -1,5 +1,5 @@
 
-package universidadprueba;
+package Data;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
