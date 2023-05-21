@@ -54,7 +54,7 @@ public class MateriaData {
 
     public Materia buscarMateria(int idMateria) {
         Materia materia = null;
-        String sql = "SELECT * FROM materia WHERE idMateria = "+idMateria+" AND estado = 1";
+        String sql = "SELECT * FROM materia WHERE idMateria=? AND estado = 1";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
@@ -63,14 +63,11 @@ public class MateriaData {
 
             if (rs.next()) {
                 materia = new Materia();
-                materia.setId_Materia(rs.getInt(idMateria));
                 materia.setNombre(rs.getString("nombre"));
                 materia.setEstado(rs.getBoolean("estado"));
                 materia.setAnio(rs.getInt("año"));
                 
-       //         alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
-       //         alumno.setEstado(true);
-
+ 
             } else {
                 JOptionPane.showMessageDialog(null, "No existe la materia");
             }
